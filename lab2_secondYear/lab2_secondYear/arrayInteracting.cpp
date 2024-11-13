@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <vector>
 #include "input.h"
 #include "workWithFiles.h"
@@ -6,7 +6,7 @@
 using namespace std;
 enum SaveMenu { Yes = 1, No = 2 };
 
-// Функция для замены всех "отрицательных нулей" (значений -0.0) на обычный 0.0 в массиве
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ Р·Р°РјРµРЅС‹ РІСЃРµС… "РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹С… РЅСѓР»РµР№" (Р·РЅР°С‡РµРЅРёР№ -0.0) РЅР° РѕР±С‹С‡РЅС‹Р№ 0.0 РІ РјР°СЃСЃРёРІРµ
 void replaceNegativeZero(vector<double>& array) {
 	for (int i = 0; i < array.size(); i++) {
 		double val = 0.0;
@@ -16,20 +16,20 @@ void replaceNegativeZero(vector<double>& array) {
 	}
 }
 
-// Функция для создания массива на основе пользовательского ввода
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ СЃРѕР·РґР°РЅРёСЏ РјР°СЃСЃРёРІР° РЅР° РѕСЃРЅРѕРІРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕРіРѕ РІРІРѕРґР°
 vector<double> setArrayByUserInput() {
-	int arraySize = inputInt("Введите размер массива:", 0, INT_MAX);
+	int arraySize = inputInt("Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР°:", 0, INT_MAX);
 	vector<double> array;
 
 	for (int i = 0; i < arraySize; i++) {
-		cout << "Введите " << i + 1 << " элемент массива: ";
+		cout << "Р’РІРµРґРёС‚Рµ " << i + 1 << " СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР°: ";
 		array.push_back(inputDouble("", -DBL_MAX, DBL_MAX));
 	}
 	replaceNegativeZero(array);
 	return array;
 }
 
-// Функция для вывода массива на экран
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ РІС‹РІРѕРґР° РјР°СЃСЃРёРІР° РЅР° СЌРєСЂР°РЅ
 void printArray(vector<double>& array, size_t size, string message) {
 	if (array.empty()) { return; }
 	cout << message << endl << endl;
@@ -45,22 +45,22 @@ void printArray(vector<double>& array, size_t size, string message) {
 	cout << endl;
 }
 
-// Функция для загрузки данных из файла в массив
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ Р·Р°РіСЂСѓР·РєРё РґР°РЅРЅС‹С… РёР· С„Р°Р№Р»Р° РІ РјР°СЃСЃРёРІ
 void loadDataFromFile(vector<double>& array) {
-	string filepath = getValidFilepath(); // Запрашиваем путь к файлу у пользователя
+	string filepath = getValidFilepath(); // Р—Р°РїСЂР°С€РёРІР°РµРј РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ Сѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 
-	vector<double> arrayFromFile = loadArrayFromFile(filepath); // Загружаем массив из файла
+	vector<double> arrayFromFile = loadArrayFromFile(filepath); // Р—Р°РіСЂСѓР¶Р°РµРј РјР°СЃСЃРёРІ РёР· С„Р°Р№Р»Р°
 
-	if (arrayFromFile.empty()) { cerr << "Ошибка чтения из файла" << endl; } // Проверка на пустой массив
+	if (arrayFromFile.empty()) { cerr << "РћС€РёР±РєР° С‡С‚РµРЅРёСЏ РёР· С„Р°Р№Р»Р°" << endl; } // РџСЂРѕРІРµСЂРєР° РЅР° РїСѓСЃС‚РѕР№ РјР°СЃСЃРёРІ
 	else {
-		array = arrayFromFile; // Присваиваем загруженные данные массиву
+		array = arrayFromFile; // РџСЂРёСЃРІР°РёРІР°РµРј Р·Р°РіСЂСѓР¶РµРЅРЅС‹Рµ РґР°РЅРЅС‹Рµ РјР°СЃСЃРёРІСѓ
 	}
 }
 
-// Функция для запроса у пользователя о необходимости сохранения массива
+// Р¤СѓРЅРєС†РёСЏ РґР»СЏ Р·Р°РїСЂРѕСЃР° Сѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ Рѕ РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё СЃРѕС…СЂР°РЅРµРЅРёСЏ РјР°СЃСЃРёРІР°
 void isNeedToSaveArrays(vector<double>& array, vector<double>& arrayForInsertionSort) {
 	int userChoice = 0;
-	userChoice = inputInt("Хотите ли сохранить массивы? \n[1]Да\n[2]Нет", 0, 3);
+	userChoice = inputInt("РҐРѕС‚РёС‚Рµ Р»Рё СЃРѕС…СЂР°РЅРёС‚СЊ РјР°СЃСЃРёРІС‹? \n[1]Р”Р°\n[2]РќРµС‚", 0, 3);
 	switch (userChoice) {
 	case(Yes): {
 		saveArraysWithResultsToFile(array, arrayForInsertionSort);

@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <vector>
 #include "input.h"
@@ -13,10 +13,10 @@ class InsertionSort {
 public:
 	InsertionSort() {}
 
-	// Функция выбора типа сортировки массива
+	// Р¤СѓРЅРєС†РёСЏ РІС‹Р±РѕСЂР° С‚РёРїР° СЃРѕСЂС‚РёСЂРѕРІРєРё РјР°СЃСЃРёРІР°
 	void typeOfSortArray(vector<double>& arrayForInsertionSort) {
 		int userChoice = 0;
-		userChoice = inputInt("Выберите порядок сортировки: \n[1]От меньшего к большему\n[2]От большего к меньшему", 0, 3);
+		userChoice = inputInt("Р’С‹Р±РµСЂРёС‚Рµ РїРѕСЂСЏРґРѕРє СЃРѕСЂС‚РёСЂРѕРІРєРё: \n[1]РћС‚ РјРµРЅСЊС€РµРіРѕ Рє Р±РѕР»СЊС€РµРјСѓ\n[2]РћС‚ Р±РѕР»СЊС€РµРіРѕ Рє РјРµРЅСЊС€РµРјСѓ", 0, 3);
 		switch (userChoice) {
 		case(increaseSort): {
 			insertionSortIncrease(arrayForInsertionSort);
@@ -27,7 +27,7 @@ public:
 			break;
 		}
 		default: {
-			cout << "Неверный ввод!" << endl;
+			cout << "РќРµРІРµСЂРЅС‹Р№ РІРІРѕРґ!" << endl;
 			break;
 		}
 		}
@@ -37,27 +37,27 @@ public:
 
 private:
 
-	// Функция сортировки вставками по возрастанию
+	// Р¤СѓРЅРєС†РёСЏ СЃРѕСЂС‚РёСЂРѕРІРєРё РІСЃС‚Р°РІРєР°РјРё РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ
 	void insertionSortIncrease(vector<double>& arrayForInsertionSort) {
-		for (int i = 1; i < arrayForInsertionSort.size(); i++) { // Проходим по всем элементам массива, начиная с 1-го
-			for (int j = i; j > 0; j--) { // Вставляем текущий элемент на нужное место в отсортированной части массива
-				if (arrayForInsertionSort[j-1] <= arrayForInsertionSort[j]) { // Если элемент на нужной позиции, выходим из цикла
+		for (int i = 1; i < arrayForInsertionSort.size(); i++) { // РџСЂРѕС…РѕРґРёРј РїРѕ РІСЃРµРј СЌР»РµРјРµРЅС‚Р°Рј РјР°СЃСЃРёРІР°, РЅР°С‡РёРЅР°СЏ СЃ 1-РіРѕ
+			for (int j = i; j > 0; j--) { // Р’СЃС‚Р°РІР»СЏРµРј С‚РµРєСѓС‰РёР№ СЌР»РµРјРµРЅС‚ РЅР° РЅСѓР¶РЅРѕРµ РјРµСЃС‚Рѕ РІ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅРѕР№ С‡Р°СЃС‚Рё РјР°СЃСЃРёРІР°
+				if (arrayForInsertionSort[j-1] <= arrayForInsertionSort[j]) { // Р•СЃР»Рё СЌР»РµРјРµРЅС‚ РЅР° РЅСѓР¶РЅРѕР№ РїРѕР·РёС†РёРё, РІС‹С…РѕРґРёРј РёР· С†РёРєР»Р°
 					break; 
 				}
-				swap(arrayForInsertionSort[j-1], arrayForInsertionSort[j]); // Иначе меняем элементы массива местами
+				swap(arrayForInsertionSort[j-1], arrayForInsertionSort[j]); // РРЅР°С‡Рµ РјРµРЅСЏРµРј СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР° РјРµСЃС‚Р°РјРё
 			}
 
 		}
 	}
 
-	// Функция сортировки вставками по убыванию
+	// Р¤СѓРЅРєС†РёСЏ СЃРѕСЂС‚РёСЂРѕРІРєРё РІСЃС‚Р°РІРєР°РјРё РїРѕ СѓР±С‹РІР°РЅРёСЋ
 	void insertionSortDecrease(vector<double>& arrayForInsertionSort) { 
-		for (int i = 1; i < arrayForInsertionSort.size(); i++) { // Проходим по всем элементам массива, начиная с 1-го
-			for (int j = i; j > 0; j--) { // Вставляем текущий элемент на нужное место в отсортированной части массива
-				if (arrayForInsertionSort[j - 1] >= arrayForInsertionSort[j]) { // Если элемент на нужной позиции, выходим из цикла
+		for (int i = 1; i < arrayForInsertionSort.size(); i++) { // РџСЂРѕС…РѕРґРёРј РїРѕ РІСЃРµРј СЌР»РµРјРµРЅС‚Р°Рј РјР°СЃСЃРёРІР°, РЅР°С‡РёРЅР°СЏ СЃ 1-РіРѕ
+			for (int j = i; j > 0; j--) { // Р’СЃС‚Р°РІР»СЏРµРј С‚РµРєСѓС‰РёР№ СЌР»РµРјРµРЅС‚ РЅР° РЅСѓР¶РЅРѕРµ РјРµСЃС‚Рѕ РІ РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅРѕР№ С‡Р°СЃС‚Рё РјР°СЃСЃРёРІР°
+				if (arrayForInsertionSort[j - 1] >= arrayForInsertionSort[j]) { // Р•СЃР»Рё СЌР»РµРјРµРЅС‚ РЅР° РЅСѓР¶РЅРѕР№ РїРѕР·РёС†РёРё, РІС‹С…РѕРґРёРј РёР· С†РёРєР»Р°
 					break;
 				}
-				swap(arrayForInsertionSort[j - 1], arrayForInsertionSort[j]); // Иначе меняем элементы массива местами
+				swap(arrayForInsertionSort[j - 1], arrayForInsertionSort[j]); // РРЅР°С‡Рµ РјРµРЅСЏРµРј СЌР»РµРјРµРЅС‚С‹ РјР°СЃСЃРёРІР° РјРµСЃС‚Р°РјРё
 			}
 
 		}
