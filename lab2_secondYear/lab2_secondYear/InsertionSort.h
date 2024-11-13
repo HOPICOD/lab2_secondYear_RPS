@@ -5,7 +5,7 @@
 #include "workWithFiles.h"
 
 using namespace std;
-enum typeOfSortArrayMenu{ increaseSort = 1, decreaseSort = 2};
+enum typeOfSortArrayMenu{ IncreaseSort = 1, DecreaseSort = 2};
 
 
 class InsertionSort {
@@ -18,11 +18,11 @@ public:
 		int userChoice = 0;
 		userChoice = inputInt("Выберите порядок сортировки: \n[1]От меньшего к большему\n[2]От большего к меньшему", 0, 3);
 		switch (userChoice) {
-		case(increaseSort): {
+		case(IncreaseSort): {
 			insertionSortIncrease(arrayForInsertionSort);
 			break;
 		}
-		case(decreaseSort): {
+		case(DecreaseSort): {
 			insertionSortDecrease(arrayForInsertionSort);
 			break;
 		}

@@ -5,7 +5,7 @@
 #include "arrayInteracting.h"
 #include "InsertionSort.h"
 
-enum MENU { setArrayByUser = 1, setArrayByFile, sortArray, exitProgram };
+enum menu { SetArrayByUser = 1, SetArrayByFile, SortArray, ExitProgram };
 
 
 int main()
@@ -20,17 +20,17 @@ int main()
         showMenu();
         userChoice = inputInt("Введите", 0, 5);
         switch (userChoice) {
-        case(setArrayByUser): {
+        case(SetArrayByUser): {
             array = setArrayByUserInput();
             printArray(array, array.size(), "Ваш массив: ");
             break;
         }
-        case(setArrayByFile): {
+        case(SetArrayByFile): {
             loadDataFromFile(array);
             printArray(array, array.size(), "Ваш массив: ");
             break;
         }
-        case(sortArray): {
+        case(SortArray): {
             vector<double> arrayForInsertionSort = array;
             if (arrayForInsertionSort.empty()) { // Проверка на пустой массив
                 cout << "Массив пуст!" << endl;
@@ -42,7 +42,7 @@ int main()
             isNeedToSaveArrays(array, arrayForInsertionSort);
             break;
         }
-        case(exitProgram): {
+        case(ExitProgram): {
             repeat = false;
         }
         }

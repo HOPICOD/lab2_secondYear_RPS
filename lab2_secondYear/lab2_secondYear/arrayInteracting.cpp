@@ -4,7 +4,7 @@
 #include "workWithFiles.h"
 
 using namespace std;
-enum SaveMenu { Yes = 1, No = 2 };
+enum saveMenu { Yes = 1, No = 2 };
 
 // Функция для замены всех "отрицательных нулей" (значений -0.0) на обычный 0.0 в массиве
 void replaceNegativeZero(vector<double>& array) {
